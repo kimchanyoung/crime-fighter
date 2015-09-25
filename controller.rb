@@ -1,7 +1,7 @@
-require_relative 'model'
 require_relative 'viewer'
 require_relative 'crimefighter'
 require_relative 'location'
+require_relative 'computer'
 
 class Controller
   include Computer
@@ -25,10 +25,10 @@ class Controller
     until done
       view.prompt_for_command
       cmd = gets.chomp
-      if cmd = 'fight crime'
+      if cmd == 'fight crime'
         fight_crime
-      elsif cmd = 'exit'
-        self.done = true
+      elsif cmd == 'exit'
+        self.done == true
       else
         view.invalid_command
       end
@@ -39,7 +39,7 @@ class Controller
     set_location
     view.ask_for_incident
     type = gets.chomp
-    if type = ""
+    if type == ""
       data = Computer.parser()
     else
       data = Computer.selective_parser(type)
