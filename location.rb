@@ -15,10 +15,6 @@ class Location
     @current_loc = Geokit::Geocoders::GoogleGeocoder.geocode(address).ll.split(',')
   end
 
-  def self.get_here_geocode(address)
-    Geokit::Geocoders::GoogleGeocoder.geocode(address).ll.split(',')
-  end
-
   def calculate_distance_to(lat, long)
     here = Geokit::LatLng.new(*current_loc)
     there = Geokit::LatLng.new(lat, long)
