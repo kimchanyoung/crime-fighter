@@ -9,10 +9,10 @@ Geokit::Geocoders::request_timeout = 3
 class Location
   # include Geokit::Mappable
 
-  attr_reader :current_loc
+  attr_reader :current_location
 
   def initialize(address = '48 Wall St, New York, NY')
-    @current_loc = Geokit::Geocoders::GoogleGeocoder.geocode(address).ll.split(',')
+    @current_location = Geokit::Geocoders::GoogleGeocoder.geocode(address).ll.split(',')
   end
 
   def calculate_distance_to(lat, long)

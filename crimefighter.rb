@@ -13,4 +13,12 @@ class CrimeFighter
   def update_location(location)
     self.location = location
   end
+
+  def here
+    location.current_location
+  end
+
+  def calculate_distance_to(lat, long)
+    location.calculate_distance_to(lat, long)
+  end
 end
