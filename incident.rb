@@ -4,8 +4,8 @@ class Incident
 	def initialize(args = {})
 		@descriptor = args["descriptor"]
 		@complaint_type = args["complaint_type"]
-		@latitude = args["latitude"]
-		@longitude = args["longitude"]
+		@latitude = args["latitude"].to_f
+		@longitude = args["longitude"].to_f
 	end
 
 	def to_s

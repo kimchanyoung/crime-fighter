@@ -2,6 +2,8 @@ require_relative 'viewer'
 require_relative 'crimefighter'
 require_relative 'location'
 require_relative 'computer'
+require_relative 'incident'
+require 'pry'
 
 class Controller
   include Computer
@@ -10,19 +12,21 @@ class Controller
   attr_accessor :crimefighter
   attr_reader :view
 
-  def inititalize
+  def initialize
     @view = View.new
     @done = false
     @crimefighter = nil
   end
 
   def run
+    view.show_batman
     view.welcome_message
     view.username_input
     username = gets.chomp
     self.crimefighter = CrimeFighter.new({name: username})
     done = false
     until done
+      puts
       view.prompt_for_command
       cmd = gets.chomp
       if cmd == 'fight crime'
@@ -36,7 +40,9 @@ class Controller
   end
 
   def fight_crime
+    puts
     set_location
+    puts
     view.ask_for_incident
     type = gets.chomp
     if type == ""
@@ -46,7 +52,7 @@ class Controller
     end
     radius = specify_radius
     all_incidents = data.map { |datum| Incident.new(datum) }
-    matches = all_incidents.select { |incident| crimefighter.calculate_distance_to(incident.lat, incident.long) <= radius }
+    matches = all_incidents.select { |incident| crimefighter.calculate_distance_to(incident.latitude, incident.longitude) <= radius.to_f }
     view.match_search_done
     matches.each { |incident| view.report_matches(incident) }
   end
@@ -63,6 +69,9 @@ class Controller
   end
 
 end
+
+runner = Controller.new
+runner.run
 
 #Controller pseudocode
 

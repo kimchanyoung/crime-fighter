@@ -16,7 +16,7 @@ class Location
   end
 
   def calculate_distance_to(lat, long)
-    here = Geokit::LatLng.new(*current_loc)
+    here = Geokit::LatLng.new(*current_location)
     there = Geokit::LatLng.new(lat, long)
     here.distance_to(there)
   end

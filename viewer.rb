@@ -1,5 +1,9 @@
 class View
 
+  def initialize()
+
+  end
+
   def display(string)
     puts string
   end
@@ -29,6 +33,7 @@ class View
   end
 
   def report_matches(incident)
+    puts
     puts incident
   end
 
@@ -38,6 +43,43 @@ class View
 
   def prompt_for_command
     puts "Please input a command: "
+  end
+
+  def show_batman
+    puts <<-BATMAN
+_ ~/~/~/~/~/~/\~~/~/
+                                      _  _                \/__/_|/_/_/_|_/_/
+                            _____*~~~  **  ~~~*_____             \____/
+                         __* ___     |\__/|     ___ *__
+                       _*  / 888~~\__(8OO8)__/~~888 \  *_
+                     _*   /88888888888888888888888888\   *_
+                     *   |8888888888888888888888888888|   *
+                    /~*  \8888/~\88/~\8888/~\88/~\8888/  *~
+                   /  ~*  \88/   \/   (88)   \/   \88/  *~
+                  /    ~*  \/          \/          \/  *~
+                 /       ~~*_                      _*~~/
+                /            ~~~~~*___ ** ___*~~~~~  /
+               /                      ~  ~         /
+              /                                  /
+             /                                 /
+            /                                /
+           /                    t__n__r__  /
+          /                    | ####### |
+         /            ___      | ####### |             ____i__           /
+        /  _____p_____l_l____  | ####### |            | ooooo |         qp
+i__p__ /  |  ##############  | | ####### |__l___xp____| ooooo |      |~~~~|
+ oooo |_I_|  ##############  | | ####### |oo%Xoox%ooxo| ooooo |p__h__|##%#|
+ oooo |ooo|  ##############  | | ####### |o%xo%%xoooo%| ooooo |      |#xx%|
+ oooo |ooo|  ##############  | | ####### |o%ooxx%ooo%%| ooooo |######|x##%|
+ oooo |ooo|  ##############  | | ####### |oo%%x%oo%xoo| ooooo |######|##%x|
+ oooo |ooo|  ##############  | | ####### |%x%%oo%/oo%o| ooooo |######|/#%x|
+ oooo |ooo|  ##############  | | ####### |%%x/oo/xx%xo| ooooo |######|#%x/|
+ oooo |ooo|  ##############  | | ####### |xxooo%%/xo%o| ooooo |######|#^x#|
+ oooo |ooo|  ##############  | | ####### |oox%%o/x%%ox| ooooo |~~~$~~|x##/|
+ oooo |ooo|  ##############  | | ####### |x%oo%x/o%//x| ooooo |_KKKK_|#x/%|
+ ooo~\|ooo|~\##############  | ~\####### |oox%xo%%oox%~\ooooo |_|~|~\|xx%/|
+ ooo ||oHo| |####AAAA######  |h||##XX### |x%x%WWx%%/ox||ooDoo |_| |Y||xGGx|
+ BATMAN
   end
 
 end
